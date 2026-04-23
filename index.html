@@ -26,8 +26,14 @@
         <div class="dot" data-section="about">
             <span class="dot-tooltip" data-en="About" data-ar="عنّي">About</span>
         </div>
+        <div class="dot" data-section="education">
+            <span class="dot-tooltip" data-en="Education" data-ar="التعليم">Education</span>
+        </div>
         <div class="dot" data-section="skills">
             <span class="dot-tooltip" data-en="Skills" data-ar="المهارات">Skills</span>
+        </div>
+        <div class="dot" data-section="experience">
+            <span class="dot-tooltip" data-en="Experience" data-ar="الخبرة">Experience</span>
         </div>
         <div class="dot" data-section="projects">
             <span class="dot-tooltip" data-en="Projects" data-ar="المشاريع">Projects</span>
@@ -57,18 +63,25 @@
                         <i class="fas fa-user"></i>
                         <span data-en="About" data-ar="عنّي">About</span>
                     </a></li>
+                <li><a href="#education" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span data-en="Education" data-ar="التعليم">Education</span>
+                    </a></li>
+
                 <li><a href="#skills" class="nav-link">
                         <i class="fas fa-cog"></i>
                         <span data-en="Skills" data-ar="المهارات">Skills</span>
                     </a></li>
+                <li><a href="#experience" class="nav-link">
+                        <i class="fas fa-briefcase"></i>
+                        <span data-en="Experience" data-ar="الخبرة">Experience</span>
+                    </a></li>
+
                 <li><a href="#projects" class="nav-link">
                         <i class="fas fa-project-diagram"></i>
                         <span data-en="Projects" data-ar="المشاريع">Projects</span>
                     </a></li>
-                <li><a href="#services" class="nav-link">
-                        <i class="fas fa-concierge-bell"></i>
-                        <span data-en="Services" data-ar="الخدمات">Services</span>
-                    </a></li>
+
                 <li><a href="#contact" class="nav-link">
                         <i class="fas fa-envelope"></i>
                         <span data-en="Contact" data-ar="اتصل بي">Contact</span>
@@ -92,40 +105,144 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1 class="hero-title" data-en="👋 Hi, I'm Mohamed Zakaria | Full-Stack Developer (MEAN)"
-                data-ar="👋 مرحبًا، أنا محمد زكريا | مطوّر Full-Stack (MEAN)">👋 Hi, I'm Mohamed Zakaria | Full-Stack
-                Developer (MEAN)</h1>
-            <p class="hero-catchline"
-                data-en="Transforming your ideas into scalable, secure, high-performance web apps."
-                data-ar="أحوّل أفكارك إلى مواقع وتطبيقات سريعة وآمنة قابلة للتوسّع.">Transforming your ideas into
-                scalable, secure, high-performance web apps.</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary" data-en="View Projects" data-ar="مشاهدة المشاريع">
-                    <i class="fas fa-code"></i>
-                    <span>View Projects</span>
-                </a>
-                <a href="#contact" class="btn btn-secondary" data-en="Contact Me" data-ar="اتصل بي">
-                    <i class="fas fa-envelope"></i>
-                    <span>Contact Me</span>
-                </a>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-en="👋 Hi, I'm Mohamed Zakaria | Full-Stack Developer (MEAN)"
+                    data-ar="👋 مرحبًا، أنا محمد زكريا | مطوّر Full-Stack (MEAN)">
+                    👋 Hi, I'm Mohamed Zakaria | Full-Stack Developer (MEAN)
+                </h1>
+                <p class="hero-catchline"
+                    data-en="Transforming your ideas into scalable, secure, high-performance web apps."
+                    data-ar="أحوّل أفكارك إلى مواقع وتطبيقات سريعة وآمنة قابلة للتوسّع.">
+                    Transforming your ideas into scalable, secure, high-performance web apps.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary" data-en="View Projects" data-ar="مشاهدة المشاريع">
+                        <i class="fas fa-code"></i>
+                        <span>View Projects</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary" data-en="Contact Me" data-ar="اتصل بي">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Me</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="./me.jpg" alt="Mohamed Zakaria" class="main-profile-img">
+
+                    <div class="floating-logos">
+                        <div class="orbit-icon"><i class="fab fa-angular" style="color: #dd0031;"></i></div>
+                        <div class="orbit-icon"><i class="fab fa-js" style="color: #f7df1e;"></i></div>
+                        <div class="orbit-icon"><i class="fab fa-node-js" style="color: #339933;"></i></div>
+                        <div class="orbit-icon"><i class="fas fa-database" style="color: #47a248;"></i></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title" data-en="About Me" data-ar="عنّي">About Me</h2>
-        <div class="about-content">
-            <p data-en="I design and build modern, secure, and scalable web applications using the MEAN stack."
-                data-ar="أصمّم وأبني تطبيقات ويب حديثة وآمنة وقابلة للتوسّع باستخدام MEAN Stack.">I design and build
-                modern, secure, and scalable web applications using the MEAN stack.</p>
+    <section id="about" dir="ltr">
+
+        <div class="titleSection">
+            <h2 class="section-title" data-en="About Me" data-ar="عنّي">About Me</h2>
+        </div>
+
+        <div class="about-container">
+            <div class="about-text">
+                <p data-en="I am a passionate Full-Stack Developer and Frontend Team Lead specializing in the MEAN stack. I design and build modern, secure, and scalable web applications, bridging the gap between robust backend logic and pixel-perfect user interfaces."
+                    data-ar="أنا مطور Full-Stack وقائد فريق فرونت إيند متخصص في تقنيات MEAN stack. أصمم وأبني تطبيقات ويب حديثة وآمنة وقابلة للتوسع، وأعمل كحلقة وصل بين منطق الباك إيند القوي وواجهات المستخدم المثالية.">
+                    I design and build modern, secure, and scalable web applications using the MEAN stack.
+                </p>
+
+                <p data-en="With a focus on Angular 21 and Signals, I lead teams to transform complex ideas into high-performance digital products. My background in Business Information Systems allows me to align technical solutions with business goals effectively."
+                    data-ar="من خلال التركيز على Angular 21 و Signals، أقود الفرق لتحويل الأفكار المعقدة إلى منتجات رقمية عالية الأداء. تتيح لي خلفيتي في نظم معلومات الأعمال ربط الحلول التقنية بأهداف الأعمال بفعالية.">
+                    I lead teams to transform complex ideas into high-performance web apps.
+                </p>
+            </div>
+
+            <div class="about-stats">
+                <div class="stat-card">
+                    <span class="stat-number">4+</span>
+                    <span class="stat-label" data-en="Years of Tech" data-ar="سنوات التقنية">Years of Tech</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label" data-en="Team Members Led" data-ar="أعضاء فريق">Team Members Led</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label" data-en="Projects Delivered" data-ar="مشروع مكتمل">Projects
+                        Delivered</span>
+                </div>
+            </div>
         </div>
     </section>
 
+    <section id="education">
+        <div class="titleSection">
+            <h2 class="section-title" data-en="Education & Training" data-ar="التعليم والتدريب">Education & Training
+            </h2>
+
+        </div>
+        <div class="education-container">
+            <div class="education-item highlight">
+                <div class="edu-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="edu-details">
+                    <h3 class="edu-degree" data-en="Full-Stack Web Development Training (MEAN Stack)"
+                        data-ar="تدريب تطوير الويب المتكامل (MEAN Stack)">
+                        Full-Stack Web Development Training (MEAN Stack)
+                    </h3>
+                    <span class="edu-university" data-en="National Telecommunication Institute (NTI)"
+                        data-ar="المعهد القومي للاتصالات (NTI)">
+                        National Telecommunication Institute (NTI)
+                    </span>
+                    <span class="edu-date">14-04-2025 — 07-09-2025</span>
+                    <p class="edu-description"
+                        data-en="Intensive professional training focusing on modern web technologies, building scalable applications, and mastering the MEAN stack."
+                        data-ar="تدريب مهني مكثف يركز على تكنولوجيات الويب الحديثة، بناء تطبيقات قابلة للتوسع، وإتقان MEAN stack.">
+                        Intensive professional training focusing on modern web technologies, building scalable
+                        applications, and mastering the MEAN stack.
+                    </p>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="edu-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="edu-details">
+                    <h3 class="edu-degree" data-en="Bachelor of Business Information Systems (BIS)"
+                        data-ar="بكالوريوس نظم معلومات الأعمال (BIS)">
+                        Bachelor of Business Information Systems (BIS)
+                    </h3>
+                    <span class="edu-university" data-en="Thebes Academy" data-ar="أكاديمية معهد طيبة العالي">Thebes
+                        Academy</span>
+                    <span class="edu-date">2022 — 2026 (Expected)</span>
+                    <p class="edu-description"
+                        data-en="Focusing on the management of information systems and business technology to bridge the gap between technical solutions and business needs."
+                        data-ar="التركيز على إدارة نظم المعلومات وتكنولوجيا الأعمال لسد الفجوة بين الحلول التقنية واحتياجات الشركات.">
+                        Focusing on the management of information systems and business technology to bridge the gap
+                        between technical solutions and business needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
     <!-- Skills Section -->
     <section id="skills">
-        <h2 class="section-title" data-en="Skills" data-ar="المهارات">Skills</h2>
+        <div class="titleSection">
+            <h2 class="section-title" data-en="Skills" data-ar="المهارات">Skills</h2>
+            </h2>
+
+        </div>
         <div class="skills-container">
             <div class="skills-grid">
                 <!-- Skills will be populated by JavaScript -->
@@ -133,9 +250,99 @@
         </div>
     </section>
 
+    <section id="experience">
+        <div class="titleSection">
+            <h2 class="section-title" data-en="Work Experience & Leadership" data-ar="الخبرة العملية والقيادية">Work
+                Experience & Leadership</h2>
+        </div>
+
+        <div class="experience-container">
+
+            <div class="exp-item highlight-tech">
+                <div class="exp-dot"></div>
+                <div class="exp-header">
+                    <h3 class="exp-title" data-en="Freelance Skills Training"
+                        data-ar="تدريب مهارات العمل الحر (Freelancing)">Freelance Skills Training</h3>
+                    <span class="exp-company">ITIDA</span>
+                    <span class="exp-date">22-04-2026 — 23-04-2026</span>
+                </div>
+                <div class="exp-body">
+                    <p data-en="Completed an intensive 14-hour freelancing bootcamp focused on market analysis, client communication, and professional project management."
+                        data-ar="أتممت تدريبًا مكثفًا لمدة 14 ساعة في مهارات العمل الحر، ركز على تحليل السوق، التواصل مع العملاء، وإدارة المشاريع الاحترافية.">
+                        Completed an intensive 14-hour freelancing bootcamp with ITIDA.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-dot"></div>
+                <div class="exp-header">
+                    <h3 class="exp-title" data-en="Frontend Team Lead (Homunity)"
+                        data-ar="قائد فريق الفرونت إيند (مشروع Homunity)">Frontend Team Lead (Homunity)</h3>
+                    <span class="exp-company" data-en="Graduation Project" data-ar="مشروع التخرج">Graduation
+                        Project</span>
+                    <span class="exp-date">2025 - Present</span>
+                </div>
+                <div class="exp-body">
+                    <p data-en="Leading a team of 5 developers. Responsible for the entire Frontend architecture, writing 95% of the core JavaScript/Logic. Collaborated with the .NET backend team to optimize API requests and response structures for better performance."
+                        data-ar="أقود فريقًا من 5 مطورين، وأنا المسؤول عن معمارية الفرونت إيند بالكامل، حيث كتبت 95% من كود الـ JS/Logic. تعاونت مع فريق الباك إيند (.NET) لتحسين هيكلة الـ API والطلبات لضمان أفضل أداء للمنصة.">
+                        Leading a team of 5 developers and managing the entire Frontend architecture.
+                    </p>
+                    <ul class="exp-tags">
+                        <li>Team Leadership</li>
+                        <li>Architecture Design</li>
+                        <li>API Optimization</li>
+                        <li>Figma to Code</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-dot"></div>
+                <div class="exp-header">
+                    <h3 class="exp-title" data-en="Full-Stack Developer (E-commerce)"
+                        data-ar="مطور ويب متكامل (تجارة إلكترونية)">Full-Stack Developer (E-commerce)</h3>
+                    <span class="exp-company">Freelance / Personal Project</span>
+                    <span class="exp-date">2025</span>
+                </div>
+                <div class="exp-body">
+                    <p data-en="Developed a high-performance E-commerce app using Angular SSR for SEO optimization. Integrated secure payment gateways and managed state using Angular Signals for a seamless user experience."
+                        data-ar="طورت تطبيق تجارة إلكترونية عالي الأداء باستخدام Angular SSR لتحسين محركات البحث. قمت بربط بوابات دفع آمنة وإدارة الحالة باستخدام Angular Signals لضمان تجربة مستخدم سلسة.">
+                        Developed a high-performance E-commerce app using Angular SSR and Signals.
+                    </p>
+                    <ul class="exp-tags">
+                        <li>Angular SSR</li>
+                        <li>Payment Integration</li>
+                        <li>Angular Signals</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-dot"></div>
+                <div class="exp-header">
+                    <h3 class="exp-title" data-en="MEAN Stack Developer (Social Media App)"
+                        data-ar="مطور MEAN Stack (تطبيق تواصل اجتماعي)">MEAN Stack Developer (Social App)</h3>
+                    <span class="exp-company">NTI Training</span>
+                    <span class="exp-date">2025</span>
+                </div>
+                <div class="exp-body">
+                    <p data-en="Co-developed a social media application as a final project in the MEAN Stack track at NTI, implementing real-time features and database management with MongoDB."
+                        data-ar="شاركت في تطوير تطبيق تواصل اجتماعي كمشروع تخرج في مسار MEAN Stack في NTI، مع تنفيذ ميزات الوقت الفعلي (Real-time) وإدارة قواعد البيانات باستخدام MongoDB.">
+                        Co-developed a social media application during NTI training.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects">
-        <h2 class="section-title" data-en="Projects" data-ar="المشاريع">Projects</h2>
+        <div class="titleSection">
+            <h2 class="section-title" data-en="Projects" data-ar="المشاريع">Projects</h2>
+
+        </div>
         <div class="projects-grid">
             <!-- Projects will be populated by JavaScript -->
         </div>
@@ -143,7 +350,10 @@
 
     <!-- Services Section -->
     <section id="services">
-        <h2 class="section-title" data-en="Services" data-ar="الخدمات">Services</h2>
+        <div class="titleSection">
+            <h2 class="section-title" data-en="Services" data-ar="الخدمات">Services</h2>
+
+        </div>
         <div class="services-grid">
             <!-- Services will be populated by JavaScript -->
         </div>
@@ -151,7 +361,10 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2 class="section-title" data-en="Contact" data-ar="اتصل بي">Contact</h2>
+        <div class="titleSection">
+            <h2 class="section-title" data-en="Contact" data-ar="اتصل بي">Contact</h2>
+
+        </div>
         <div class="contact-container">
             <form class="contact-form">
                 <div class="form-group">
