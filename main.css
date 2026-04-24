@@ -270,8 +270,8 @@ header {
 
 /* تنسيق الصورة الدائرية */
 .image-wrapper img {
-  width: 300px; /* تحكم في الحجم من هنا */
-  height: 300px; /* لازم الطول يساوي العرض عشان تطلع دايرة مظبوطة */
+  width: 400px; /* تحكم في الحجم من هنا */
+  height: 400px; /* لازم الطول يساوي العرض عشان تطلع دايرة مظبوطة */
   object-fit: cover; /* بيخلي الصورة متتطش وتملى الدايرة */
   border-radius: 50%; /* دي اللي بتعمل الشكل الدائري */
   border: 4px solid #fff; /* إطار أبيض خفيف ينطق الصورة */
@@ -303,8 +303,8 @@ header {
 } /* حاوية الصورة الأساسية */
 .image-wrapper {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 450px;
+  height: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
