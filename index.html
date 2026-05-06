@@ -694,7 +694,7 @@
                 { name: 'Express', icon: 'fas fa-server' },
                 { name: 'MongoDB', icon: 'fas fa-database' },
                 { name: 'Angular', icon: 'fab fa-angular' },
-                { name: 'TypeScript', icon: 'fab fa-js' }, 
+                { name: 'TypeScript', icon: 'fab fa-js' },
                 { name: 'Postman', icon: 'fas fa-rocket' },
                 { name: 'Figma', icon: 'fab fa-figma' },
                 { name: 'C++', icon: 'fas fa-file-code' },
@@ -722,8 +722,8 @@
                         en: 'A modern and responsive gym website with membership plans, trainer profiles, and class schedules.',
                         ar: 'موقع نادي رياضي حديث ومتجانس مع خطط العضوية وملفات المدربين وجداول الحصص.'
                     },
-                    tech: ['HTML', 'CSS', 'JavaScript'],
-                    image: 'https://mohawed442.github.io/gym_mohamed_ramadan/',
+                    tech: ['HTML', 'CSS', 'JavaScript', 'bootstrap'],
+                    image: './img/Gym.png',
                     url: 'https://mohawed442.github.io/gym_mohamed_ramadan/'
                 },
                 {
@@ -733,7 +733,7 @@
                         ar: 'موقع زراعي يعرض المنتجات العضوية وأنشطة المزرعة ومتجر online.'
                     },
                     tech: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
-                    image: 'https://mohawed442.github.io/agrios/',
+                    image: './img/agrios.png',
                     url: 'https://mohawed442.github.io/agrios/'
                 },
                 {
@@ -742,8 +742,8 @@
                         en: 'Travel website with destination guides, booking system, and travel tips.',
                         ar: 'موقع سفر مع أدلة الوجهات ونظام الحجز ونصائح السفر.'
                     },
-                    tech: ['HTML', 'CSS', 'JavaScript'],
-                    image: 'https://mohawed442.github.io/Safer/',
+                    tech: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+                    image: './img/safir.png',
                     url: 'https://mohawed442.github.io/Safer/'
                 }
             ];
@@ -758,7 +758,7 @@
 
                 projectCard.innerHTML = `
                     <div class="project-image" style="background-image: url('${project.image}')">
-                        ${project.title[currentLang]}
+                        <!-- ${project.title[currentLang]}-->
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">
@@ -823,6 +823,49 @@
 
             //     servicesGrid.appendChild(serviceCard);
             // });
+
+
+            // comments 
+            const reviewsContainer = document.querySelector('.reviews-container');
+            const API_URL = 'http://localhost:5000/api/comments'; // ضع الرابط الخاص بك هنا
+
+            async function fetchAndRenderReviews() {
+                try {
+                    const response = await fetch(API_URL);
+                    const reviews = await response.json();
+
+                    const activeReviews = reviews.filter(review => review.isActive);
+
+                    reviewsContainer.innerHTML = '';
+
+                    activeReviews.forEach(review => {
+                        const reviewHTML = `
+                <div class="review-card">
+                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                    <p class="review-text"
+                        data-en="${review.messageEn}"
+                        data-ar="${review.messageAr}">
+                        ${review.messageAr} <!-- القيمة الافتراضية -->
+                    </p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-details">
+                            <h4 data-en="${review.name}" data-ar="${review.name}">${review.name}</h4>
+                            <span data-en="${review.Kinship}" data-ar="${review.Kinship}">${review.Kinship}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+                        reviewsContainer.insertAdjacentHTML('beforeend', reviewHTML);
+                    });
+
+
+                } catch (error) {
+                    console.error('Error fetching reviews:', error);
+                    // reviewsContainer.innerHTML = '<p>حدث خطأ أثناء تحميل البيانات.</p>';
+                }
+            }
+
+            fetchAndRenderReviews();
 
             // Intersection Observer for animations
             const sections = document.querySelectorAll('section');
