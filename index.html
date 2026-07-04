@@ -528,10 +528,9 @@
     <section id="contact">
         <div class="titleSection">
             <h2 class="section-title" data-en="Contact" data-ar="اتصل بي">Contact</h2>
-
         </div>
         <div class="contact-container">
-            <form class="contact-form">
+            <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label class="form-label" for="name">
                         <i class="fas fa-user"></i>
@@ -547,16 +546,24 @@
                     <input type="email" id="email" class="form-input" required>
                 </div>
                 <div class="form-group">
+                    <label class="form-label" for="kinship">
+                        <i class="fas fa-users"></i>
+                        <span data-en="Relation" data-ar="صلة القرابة">Relation</span>
+                    </label>
+                    <input type="text" id="kinship" class="form-input" required>
+                </div>
+                <div class="form-group">
                     <label class="form-label" for="message">
                         <i class="fas fa-comment"></i>
                         <span data-en="Message" data-ar="الرسالة">Message</span>
                     </label>
                     <textarea id="message" class="form-textarea" required></textarea>
                 </div>
-                <button type="submit" class="submit-btn" data-en="Send Message" data-ar="إرسال الرسالة">
+                <button type="submit" class="submit-btn" id="submitBtn" data-en="Send Message" data-ar="إرسال الرسالة">
                     <i class="fas fa-paper-plane"></i>
-                    <span>Send Message</span>
+                    <span data-en="Send Message" data-ar="إرسال الرسالة">Send Message</span>
                 </button>
+                <p id="formStatus" class="form-status"></p>
             </form>
             <div class="contact-info">
                 <div class="social-links">
@@ -565,13 +572,14 @@
                     <a href="https://www.linkedin.com/in/mohamed-zakaria-96715724a/" class="social-link"
                         aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="mailto:moddm766@gmail.com" class="social-link" aria-label="Email"><i
-                            class="fas fa-envelope" target="_blank"></i></a>
-                    <a href="https://wa.me/+201148733938" class="social-link" aria-label="WhatsApp"><i
-                            class="fab fa-whatsapp" target="_blank"></i></a>
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://wa.me/+201148733938" class="social-link" aria-label="WhatsApp" target="_blank"><i
+                            class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer>
@@ -827,7 +835,7 @@
 
             // comments 
             const reviewsContainer = document.querySelector('.reviews-container');
-            const API_URL = 'http://localhost:5000/api/comments'; // ضع الرابط الخاص بك هنا
+            const API_URL = API_BASE_URL + '/api/comments'; // ضع الرابط الخاص بك هنا
 
             async function fetchAndRenderReviews() {
                 try {
@@ -845,7 +853,7 @@
                     <p class="review-text"
                         data-en="${review.messageEn}"
                         data-ar="${review.messageAr}">
-                        ${review.messageAr} <!-- القيمة الافتراضية -->
+                        ${review.messageEn} <!-- القيمة الافتراضية -->
                     </p>
                     <div class="reviewer-info">
                         <div class="reviewer-details">
@@ -929,6 +937,63 @@
 
             // Add animation to hero section on load
             document.querySelector('.hero').classList.add('visible');
+        });
+
+
+        const API_BASE_URL = "https://profile-back-nine.vercel.app";
+
+        const contactForm = document.getElementById("contactForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const formStatus = document.getElementById("formStatus");
+
+        function getCurrentLang() {
+            return document.documentElement.lang === "ar" ? "ar" : "en";
+        }
+
+        function showStatus(messageEn, messageAr, isError) {
+            const lang = getCurrentLang();
+            formStatus.textContent = lang === "ar" ? messageAr : messageEn;
+            formStatus.className = "form-status " + (isError ? "error" : "success");
+        }
+
+        contactForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const kinship = document.getElementById("kinship").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (!name || !email || !kinship || !message) {
+                showStatus("Please fill all fields", "من فضلك اكمل كل الحقول", true);
+                return;
+            }
+
+            submitBtn.disabled = true;
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/comments`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, email, kinship, message }),
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showStatus("Message sent successfully!", "تم إرسال الرسالة بنجاح!", false);
+                    contactForm.reset();
+                } else {
+                    showStatus(data.error || "Something went wrong", data.error || "حدث خطأ ما", true);
+                }
+            } catch (error) {
+                showStatus("Network error, try again", "خطأ في الاتصال، حاول مرة أخرى", true);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
         });
     </script>
 </body>
