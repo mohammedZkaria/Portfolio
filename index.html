@@ -837,6 +837,13 @@
             const reviewsContainer = document.querySelector('.reviews-container');
             const API_URL = API_BASE_URL + '/api/comments'; // ضع الرابط الخاص بك هنا
 
+            function escapeHtml(str) {
+                if (!str) return '';
+                const div = document.createElement('div');
+                div.textContent = str;
+                return div.innerHTML;
+            }
+
             async function fetchAndRenderReviews() {
                 try {
                     const response = await fetch(API_URL);
@@ -851,21 +858,20 @@
                 <div class="review-card">
                     <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
                     <p class="review-text"
-                        data-en="${review.messageEn}"
-                        data-ar="${review.messageAr}">
-                        ${review.messageEn} <!-- القيمة الافتراضية -->
+                        data-en="${escapeHtml(review.messageEn)}"
+                        data-ar="${escapeHtml(review.messageAr)}">
+                        ${escapeHtml(review.messageEn)} <!-- القيمة الافتراضية -->
                     </p>
                     <div class="reviewer-info">
                         <div class="reviewer-details">
-                            <h4 data-en="${review.name}" data-ar="${review.name}">${review.name}</h4>
-                            <span data-en="${review.Kinship}" data-ar="${review.Kinship}">${review.Kinship}</span>
+                            <h4 data-en="${escapeHtml(review.name)}" data-ar="${escapeHtml(review.name)}">${escapeHtml(review.name)}</h4>
+                            <span data-en="${escapeHtml(review.KinshipEn)}" data-ar="${escapeHtml(review.KinshipAr)}">${escapeHtml(review.KinshipEn)}</span>
                         </div>
                     </div>
                 </div>
             `;
                         reviewsContainer.insertAdjacentHTML('beforeend', reviewHTML);
                     });
-
 
                 } catch (error) {
                     console.error('Error fetching reviews:', error);
@@ -874,7 +880,6 @@
             }
 
             fetchAndRenderReviews();
-
             // Intersection Observer for animations
             const sections = document.querySelectorAll('section');
             const dotNavigation = document.querySelectorAll('.dot');
